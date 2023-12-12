@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JLProfi Website</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="p5.min.js"></script>
+    <script src="p5.sound.min.js"></script>
+
+    <style>
+      body {
+        margin: 0;
+        background-color: rgb(22, 22, 22);
+        
+      }
+
+      .headline{
+        position: absolute;
+        color: rgb(201, 201, 201);
+        padding: 15px;
+        border: 1px solid;
+        border-radius: 50px;
+        font-size: 100px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        text-shadow: 5px 5px 2px rgba(89, 0, 255, 0.295);
+        top: 70px;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%)
+        
+      }
+
+      .button {
+        background-color: rgba(255, 255, 255, 0.63);
+        border-radius: 20px;
+        position: absolute;
+        margin-top: 200px;
+        margin-left: 100px;
+        height: 400px;
+        width: 400px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 60px;
+        color: rgb(117, 117, 117);
+        transition: 1.5s;
+        transform: translateY(25px);
+      }
+      .button:hover {
+        background-color: rgba(255, 255, 255, 0.514);
+        position: absolute;
+        margin-top: 200px;
+        margin-left: 100px;
+        height: 400px;
+        width: 400px;
+        transition: 1s;
+        transform: translateY(0px);
+        transform: scale(1.1);
+        color: rgba(184, 135, 11, 0);
+      }
+      
+      .paragraphs {
+        color: rgb(170, 170, 170);
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      }
+
+      .welcome-text {
+        position: absolute;
+        font-size: 30px;
+        top: 230px;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%)
+      }
+
+      .category-text {
+        font-size: 35px;
+      }
+
+      .spiele-text {
+        position: absolute;
+        color: rgba(111, 34, 184, 0.582);
+        top: 330px;
+        left: 28%;
+        text-decoration: underline;
+        margin-right: -72%;
+        transform: translate(-50%, -50%)
+        
+      }
+      .musik-text {
+        position: absolute;
+        color: rgba(111, 34, 184, 0.582);
+        top: 330px;
+        left: 72%;
+        text-decoration: underline;
+        margin-right: -28%;
+        transform: translate(-50%, -50%)
+        
+      }
+
+      .background-clip {
+        position: absolute;
+        top: 0px;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        filter: brightness(0.25);
+      }
+      @media (min-aspect-ratio:16/9) {
+        .background-clip {
+          width: 100%;
+          height: auto;
+        }
+      }
+      @media (max-aspect-ratio:16/9) {
+        .background-clip {
+          width: auto;
+          height: 100%;
+        }
+      }
+      .background-clip_2 {
+        position: absolute;
+        top: 1080px;
+        rotate: 180deg;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        filter: brightness(0.25);
+      }
+      @media (min-aspect-ratio:16/9) {
+        .background-clip_2 {
+          width: 100%;
+          height: auto;
+        }
+      }
+      @media (max-aspect-ratio:16/9) {
+        .background-clip_2 {
+          width: auto;
+          height: 100%;
+        }
+      }
+
+      .game_1 {
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0);
+        height: 300px;
+        top: 630px;
+        width: 700px;
+        left: 28%;
+        margin-right: -72%;
+        transform: translate(-50%, -50%)
+      }
+      .vaccine-gameplay-img {
+        position: absolute;
+        height: auto;
+        width: 692px;
+        border: 4px solid rgb(71, 71, 71);
+        border-radius: 10px;
+      }
+      .vaccine-headline {
+        position: absolute;
+        text-align: center;
+        font-size: 30px;
+        top: -70px;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%)
+      }
+      .read-more-button-vaccine {
+        position: absolute;
+        height: 40px;
+        width: 200px;
+        border: 1px solid rgba(68, 0, 255, 0.466);
+        border-radius: 20px;
+        color: rgba(98, 0, 255, 0.712);
+        background-color: rgba(255, 255, 255, 0);
+        font-weight: bold;
+        transition: 0.5s;
+        font-size: 14px;
+        top: 440px;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%)
+      }
+      .read-more-button-vaccine:hover {
+        color: rgba(98, 0, 255, 0.712);
+        background-color: rgba(89, 0, 255, 0.205);
+        transition: 2s;
+        font-size: 15px;
+        font-weight: bold;
+        text-decoration: underline;
+      }
+
+      .download-button-vaccine {
+        position: absolute;
+        height: 40px;
+        width: 250px;
+        border: 1px solid rgba(68, 0, 255, 0.466);
+        border-radius: 20px;
+        color: rgba(98, 0, 255, 0.712);
+        background-color: rgba(255, 255, 255, 0);
+        font-weight: bold;
+        transition: 0.5s;
+        font-size: 14px;
+        top: 500px;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%)
+      }
+      .download-button-vaccine:hover {
+        color: rgba(98, 0, 255, 0);
+        background-color: rgba(255, 17, 0, 0.082);
+        border-color: rgba(255, 0, 0, 0.507);
+        transition: 2s;
+        font-size: 15px;
+        font-weight: bold;
+        text-decoration: line-through;
+      }
+      .game_1_info {
+        position: absolute;
+        top: 50%;
+        background-color: rgba(68, 0, 255, 0.185);
+        padding: 5px;
+        border: 2px solid rgba(114, 114, 114, 0.39);
+        border-radius: 10px;
+        display: none;
+        text-align: center;
+        font-size: 22px;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%)
+      }
+
+      .audio-controls_1 {
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.075);
+        padding: 15px;
+        border: 4px solid rgb(71, 71, 71);
+        border-radius: 10px;
+        height: 700px;
+        width: 300px;
+        top: 780px;
+        left: 62%;
+        margin-right: -38%;
+        transform: translate(-50%, -50%)
+      }
+      .audio-controls_2 {
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.075);
+        padding: 15px;
+        border: 4px solid rgb(71, 71, 71);
+        border-radius: 10px;
+        height: 700px;
+        width: 300px;
+        top: 780px;
+        left: 82%;
+        margin-right: -18%;
+        transform: translate(-50%, -50%)
+      }
+      
+      audio::-webkit-media-controls-panel{
+          background-color: rgb(36, 36, 36);
+      }
+
+      audio::-webkit-media-controls-mute-button{
+        background-color: rgba(80, 27, 129, 0.397);
+        border-radius: 20px;
+      }
+
+      audio::-webkit-media-controls-play-button{
+        background-color: rgba(80, 27, 129, 0.397);
+        border-radius: 20px;
+      }
+
+      audio::-webkit-media-controls-current-time-display{
+        font-weight: bold;
+        color: rgb(182, 182, 182);
+      }
+
+      audio::-webkit-media-controls-time-remaining-display{
+        font-weight: bold;
+        color: rgb(182, 182, 182);
+      }
+
+      audio::-webkit-media-controls-timeline{
+        color: rgba(110, 36, 180, 0.397)blu;
+      }
+
+      audio::-webkit-media-controls-volume-slider-container{
+        background-color: rgba(110, 36, 180, 0.397)blu;
+      }
+
+      audio::-webkit-media-controls-volume-slider{
+        color:rgba(110, 36, 180, 0.397)blu;
+      }
+
+      ::-webkit-scrollbar {
+        background-color: rgba(255, 255, 255, 0);
+        width: 10px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(transparent, rgba(98, 0, 255, 0.712));
+        border-radius: 12px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1 class="headline">JLProfi</h1>
+
+    <div class="paragraphs">
+      <video autoplay loop muted plays-inline class="background-clip">
+        <source src="PurpleGalaxyTrim.mp4" type="video/mp4">
+      </video>
+      <video autoplay loop muted plays-inline class="background-clip_2">
+        <source src="PurpleGalaxyTrim.mp4" type="video/mp4">
+      </video>
+
+      <p class="welcome-text">Willkommen auf meiner Download-Page.</p>
+
+      <div class="category-text">
+        <p class="spiele-text">Spiele</p>
+        <p class="musik-text">Musik</p>
+      </div>
+      <div class="game_1">
+        <p class="vaccine-headline">Vaccine</p>
+        <img src="Vaccine-Gameplay.png" class="vaccine-gameplay-img">
+        <button class="read-more-button-vaccine" onclick="hideShowGame1Info()">Read more</button>
+        <button class="download-button-vaccine">Download</button>
+        <p class="game_1_info" id="game_1_info">
+          "Meine Familie hat es in dieser Zeit nicht leicht. Meine Frau ist schwanger und meine Tochter ist krank.
+          Die Regierung verweigert uns den Zugriff auf Daten, Zeiträume und Pläne. Wie wird in der Pandemie gewirtschaftet? Das ganze System
+          "Wirtschaft" erlebt gerade ein Tief und das beeinflusst uns stärker als alle anderen Katastrophen der letzten 50 Jahre.
+          Menschen sterben, hungern, trauern und verzweifeln, egal wo man hinsieht: 2m Mindest-Abstand! Meine Tochter braucht Hilfe.
+          Den Impfstoff! Keiner hat ihn, keiner bekommt ihn. Doch ich habe einen Plan..."
+        </p>
+      </div>
+        <div class="audio-controls_1">
+          <p>All On Me</p>
+          <Audio controls src="AllOnMe.mp3"></Audio>
+          <p>Rush</p>
+          <Audio controls src="Rush.mp3"></Audio>
+          <p>Bulletbox</p>
+          <Audio controls src="Bulletbox.mp3"></Audio>
+          <p>Layed Back</p>
+          <Audio controls src="LayedBack.mp3"></Audio>
+          <p>Rockstar (Unlooped)</p>
+          <Audio controls src="Rockstar.mp3"></Audio>
+          <p>Swervin (Teaser)</p>
+          <Audio controls src="Swervin.mp3"></Audio>
+
+        </div>
+        <div class="audio-controls_2">
+          <p>Urus</p>
+          <Audio controls src="Urus.mp3"></Audio>
+          <p>Track 8</p>
+          <Audio controls src=""></Audio>
+          <p>Track 9</p>
+          <Audio controls src=""></Audio>
+          <p>Track 10</p>
+          <Audio controls src=""></Audio>
+          <p>Track 11</p>
+          <Audio controls src=""></Audio>
+          <p>Track 12</p>
+          <Audio controls src=""></Audio>
+
+        </div>
+    </div>
+
+    <script>
+      let isPlaying = true;
+      let timeline1 = document.getElementById("myRange1");
+
+      let play1 = document.getElementById("play-1");
+      let play2 = document.getElementById("play-2");
+
+      var display = 0;
+      let gameInfo = document.getElementById("game_1_info");
+
+      function hideShowGame1Info() {
+        if(display == 1) {
+          gameInfo.style.display = 'block';
+          display = 0;
+        }
+        else
+        {
+          gameInfo.style.display = 'none';
+          display = 1;
+        }
+      }
+
+      function playMusic_1() {
+        let audio1 = new Audio("audio/AllOnMe.mp3");
+        audio1.volume = 0.5;
+        audio1.play();
+      }
+      play1.addEventListener("click", playMusic_1);
+
+    </script>
+  </body>
+</html>
