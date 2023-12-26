@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JLProfi Website</title>
+    <link rel="stylesheet" href="mystyle.css">
+  </head>
+
+  <body>
+    <h1 class="headline">JLProfi</h1>
+
+    <div class="paragraphs">
+      <img src="PurpleGalaxyShort.gif" class="background-clip">
+      <img src="PurpleGalaxyShort.gif" class="background-clip_2">
+      <img src="PurpleGalaxyShort.gif" class="background-clip_3">
+      <img src="PurpleGalaxyShort.gif" class="background-clip_4">
+
+      
+
+      <p class="welcome-text">Willkommen auf meiner Download-Page.</p>
+
+      <div class="category-text">
+        <p class="spiele-text">Spiele</p>
+        <p class="musik-text">Musik</p>
+      </div>
+      <div class="game_1">
+        <p class="vaccine-headline">Vaccine</p>
+        <img src="Vaccine-Gameplay.png" class="vaccine-gameplay-img">
+        <button class="read-more-button-vaccine" onclick="hideShowGame1Info()">Read more</button>
+        <button class="download-button-vaccine">Download</button>
+        <p class="game_1_info" id="game_1_info">
+          "Meine Familie hat es in dieser Zeit nicht leicht. Meine Frau ist schwanger und meine Tochter ist krank.
+          Die Regierung verweigert uns den Zugriff auf Daten, Zeiträume und Pläne. Wie wird in der Pandemie gewirtschaftet? Das ganze System
+          "Wirtschaft" erlebt gerade ein Tief und das beeinflusst uns stärker als alle anderen Katastrophen der letzten 50 Jahre.
+          Menschen sterben, hungern, trauern und verzweifeln, egal wo man hinsieht: 2m Mindest-Abstand! Meine Tochter braucht Hilfe.
+          Den Impfstoff! Jeder braucht ihn, keiner bekommt ihn. Doch ich habe einen Plan..."
+        </p>
+      </div>
+        <div class="audio-controls_1">
+          <p class="name">Bulletbox</p>
+          <p class="date">21.03.23</p>
+          <Audio controls src="Bulletbox.mp3" class="audio"></Audio>
+          <p class="space">space</p>
+
+          <p class="name">Rush</p>
+          <p class="date">04.10.23</p>
+          <Audio controls src="Rush.mp3" class="audio"></Audio>
+          <p class="space">space</p>
+
+          <p class="name">Urus</p>
+          <p class="date">18.10.23</p>
+          <Audio controls src="Urus.mp3" class="audio"></Audio>
+          <p class="space">space</p>
+
+          <p class="name">All On Me</p>
+          <p class="date">09.11.23</p>
+          <Audio controls src="AllOnMe.mp3" class="audio"></Audio>
+          <p class="space">space</p>
+
+          <p class="name">Glory</p>
+          <p class="date">15.11.23</p>
+          <Audio controls src="Glory.mp3" class="audio"></Audio>
+          <p class="space">space</p>
+
+          <p class="name">Layed Back</p>
+          <p class="date">10.12.23</p>
+          <Audio controls src="LayedBack.mp3" class="audio"></Audio>
+          <p class="space">space</p>
+
+
+        </div>
+        <div class="audio-controls_2">
+          <p class="name">Rockstar (Unlooped)</p>
+          <p class="date">10.12.23</p>
+          <Audio controls src="Rockstar.mp3" class="audio"></Audio>
+          <p class="space">space</p>
+
+          <p class="name">Miss You</p>
+          <p class="date">17.12.23</p>
+          <Audio controls src="Miss You Mixed.mp3" class="audio"></Audio>
+          <p class="space">space</p>
+
+          <p class="name">Good For You</p>
+          <p class="date">25.12.23</p>
+          <Audio controls src="Good For You.mp3" class="audio"></Audio>
+          <p class="space">space</p>
+
+          <p class="name">Track 10</p>
+          <p class="date">--.--.--</p>
+          <Audio controls src="" class="audio"></Audio>
+          <p class="space">space</p>
+
+          <p class="name">Track 11</p>
+          <p class="date">--.--.--</p>
+          <Audio controls src="" class="audio"></Audio>
+          <p class="space">space</p>
+
+          <p class="name">Track 12</p>
+          <p class="date">--.--.--</p>
+          <Audio controls src="" class="audio"></Audio>
+          <p class="space">space</p>
+
+
+        </div>
+    </div>
+
+    <script>
+      var display = 0;
+      let gameInfo = document.getElementById("game_1_info");
+
+      function hideShowGame1Info() {
+        if(display == 1) {
+          gameInfo.style.display = 'block';
+          display = 0;
+        }
+        else
+        {
+          gameInfo.style.display = 'none';
+          display = 1;
+        }
+      }
+
+    </script>
+  </body>
+</html>
